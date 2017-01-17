@@ -7,5 +7,10 @@ package Controller;
  *
  */
 public class Controller {
-//Test
+	
+	private Kalorienverbrauch kalorien;
+	
+	public Controller(){
+		kalorien = new Kalorienverbrauch();
+	}
 }
