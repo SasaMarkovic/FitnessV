@@ -33,7 +33,7 @@ public class Kalorienverbrauch {
 	}
 	
 	public void berechnegrundumsatzFrau(){
-		
+		this.grundumsatz = 655.1 + (9.6 * this.gewicht) + (1.8 * this.groesse) - (4.7 * this.alter);
 	}
 	
 	public void berechneleistungsumsatz(){
