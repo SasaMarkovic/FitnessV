@@ -11,11 +11,7 @@ public class BMI {
 		
 	}
 	
-	public void berechneBMIFrau(){
-		this.bmi = koerpergewicht / (koerpergroesse * koerpergroesse);
-	}
-	
-	public void berechneBMIMann(){
+	public void berechneBMI(){
 		this.bmi = koerpergewicht / (koerpergroesse * koerpergroesse);
 	}
 	
