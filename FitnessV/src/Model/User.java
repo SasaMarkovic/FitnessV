@@ -13,6 +13,15 @@ public class User {
 		
 	}
 	
+	public void abmelden(){
+		name = null;
+		vorname = null;
+		alter = 0;
+		groesse = 0;
+		gewicht = 0;
+		passwort = null;
+	}
+	
 	public void anmelden(String name, String vorname, int alter, double groesse, double gewicht, String passwort){
 		this.setname(name);
 		this.setvorname(vorname);
