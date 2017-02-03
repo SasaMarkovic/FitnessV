@@ -1,4 +1,4 @@
-package Controller;
+package Control;
 //http://www.sportunterricht.ch/Theorie/Energie/energie.php
 public class Kalorienverbrauch {
 	
@@ -37,6 +37,22 @@ public class Kalorienverbrauch {
 		sitzend_gehend_stehend = 1.7;
 		stehend_gehend = 1.9;
 		anstrengende_arbeit = 2.4;
+	}
+	
+	public void getUserDatas(Model.User user){
+		geschlecht = "Mann";
+		groesse = user.getgroesse();
+		gewicht = user.getgewicht();
+		alter = user.getalter();
+	}
+	
+	public void setPalWerte(int schlafen, int liegen, int sitzen, int stehen, int gehen, int sport){
+		schlafen_hours = schlafen;
+		sitzend_liegend_hours = liegen;
+		sitzend_kaum_hours = sitzen;
+		sitzend_gehend_stehend_hours = stehen;
+		stehend_gehend_hours = gehen;
+		anstrengende_arbeit_hours = sport;
 	}
 	
 	public void berechnegrundumsatzMann(){

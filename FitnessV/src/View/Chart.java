@@ -18,36 +18,8 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 public class Chart {
-	
-	private XYDataset dataset;
-	private JFreeChart chart;
-	private ChartPanel panel;
-	
+	//Coming Soon!
 	public Chart(){
-		
-	}
-	public void createPieChart(){
-		DefaultPieDataset tempSet = new DefaultPieDataset();
-		JFreeChart tempChart = ChartFactory.createPieChart(
-				"Test Chart",
-				(PieDataset) dataset,
-				true,
-				true,
-				false);
-	}
-	public JFreeChart createLineChart(){
-		JFreeChart tempChart = ChartFactory.createXYLineChart(
-				"Test Chart",
-				"X",
-				"Y",
-				dataset,
-				PlotOrientation.VERTICAL,
-				true,
-				true,
-				false);
-		return tempChart;
-	}
-	public void getDataset(ArrayList list, String parameter){
 		
 	}
 }

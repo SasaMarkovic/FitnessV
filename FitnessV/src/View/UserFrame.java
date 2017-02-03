@@ -16,6 +16,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -51,7 +53,7 @@ public class UserFrame extends Application{
 		
 		root.setTop(hbox);
 		
-		formContent(root);
+		diagrammContent(root);
 		
 		stage.setScene(new Scene(root,700,675));
 	}
@@ -143,8 +145,17 @@ public class UserFrame extends Application{
 		
 	}
 	
-	public void diagrammContent(){
+	public void diagrammContent(BorderPane parent){
+		Image img = new Image("img/diagramm.png");
 		
+		ImageView view = new ImageView();
+		view.setImage(img);
+		
+		Group root = new Group();
+		
+		root.getChildren().add(view);
+		
+		parent.setCenter(root);
 	}
 	
 	public void loginFrame(){

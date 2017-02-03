@@ -2,6 +2,7 @@ package Model;
 
 public class User {
 	
+	private String username;
 	private String name;
 	private String vorname;
 	private int alter;
@@ -10,10 +11,11 @@ public class User {
 	private String passwort;
 	
 	public User(){
-		
+		anmelden("Sasa", "Markovic", "Sasa", 18, 200, 85, "123");
 	}
 	
 	public void abmelden(){
+		username = null;
 		name = null;
 		vorname = null;
 		alter = 0;
@@ -22,7 +24,8 @@ public class User {
 		passwort = null;
 	}
 	
-	public void anmelden(String name, String vorname, int alter, double groesse, double gewicht, String passwort){
+	public void anmelden(String username, String name, String vorname, int alter, double groesse, double gewicht, String passwort){
+		this.username = username;
 		this.setname(name);
 		this.setvorname(vorname);
 		this.setalter(alter);
@@ -35,8 +38,8 @@ public class User {
 		this.setpasswort(newpw);
 	}
 	
-	public void changeGewicht(double newgewicht){
-		this.setgewicht(newgewicht);
+	public void changeusername(String name){
+		this.username = name;
 	}
 	
 	public String getname(){

@@ -9,11 +9,11 @@ import javafx.scene.Scene;
  *
  */
 public class Controller {
-	UserFrame logframe;
+	UserFrame frame;
 	public Controller(){
-		logframe = new UserFrame();
+		frame = new UserFrame();
 	}
-	public void displayLogin(){
-		logframe.launchFrame();
+	public void displayFrame(){
+		frame.launchFrame();
 	}
 }
