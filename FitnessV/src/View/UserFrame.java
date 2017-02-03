@@ -30,6 +30,9 @@ import javafx.stage.Stage;
 public class UserFrame extends Application{
 	private Stage mainstage;
 	private Scene scene;
+	private Controller view;
+	private String username;
+	private String password;
 	
 	public void controlFrame(){
 		Stage stage = mainstage;
@@ -41,12 +44,33 @@ public class UserFrame extends Application{
 
 	    Button buttonDiagramme = new Button("Diagramme");
 	    buttonDiagramme.setPrefSize(100, 20);
+	    
+        buttonDiagramme.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	diagrammContent(root);
+            }
+        });
 
 	    Button buttonFormular = new Button("Formular");
 	    buttonFormular.setPrefSize(100, 20);
 	    
+        buttonFormular.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	formContent(root);
+            }
+        });
+	    
 	    Button buttonSettings = new Button("Settings");
 	    buttonSettings.setPrefSize(100, 20);
+	    
+        buttonSettings.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	settingsContent(root);
+            }
+        });
 	    hbox.getChildren().addAll(buttonDiagramme, buttonFormular, buttonSettings);
 	    
 	    hbox.setAlignment(Pos.CENTER);
@@ -141,8 +165,33 @@ public class UserFrame extends Application{
 		paret_child.setCenter(grid);
 	}
 	
-	public void settingsContent(){
+	public void settingsContent(BorderPane paret_child){
+		GridPane grid = new GridPane();
 		
+		Label schlafend_label = new Label("Neues Passwort: ");
+		Label liegend_label = new Label("Passwort wiederholen: ");
+		
+		Label fueller1 = new Label("     ");
+		Label fueller2 = new Label("     ");
+		
+		TextField schlafend_field = new TextField();
+		TextField liegend_field = new TextField();
+		
+		grid.add(schlafend_label, 0, 1);
+		grid.add(fueller1, 1, 1);
+		grid.add(schlafend_field, 2, 1);
+		
+		grid.add(liegend_label, 0, 2);
+		grid.add(fueller2, 1, 1);
+		grid.add(liegend_field, 2, 2);
+		
+        Button btn = new Button("Submit");
+        HBox hbBtn = new HBox(10);
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn.getChildren().add(btn);
+        grid.add(hbBtn, 2, 8);
+		
+		paret_child.setCenter(grid);
 	}
 	
 	public void diagrammContent(BorderPane parent){
@@ -197,7 +246,7 @@ public class UserFrame extends Application{
             	String checkName = userTextField.getText();
             	String checkPw = pwBox.getText();
             	
-            	if(checkName.equals("Sasa") && checkPw.equals("123")){
+            	if(checkName.equals(view.getUserName()) && checkPw.equals(view.getUserPw())){
                     actiontarget.setFill(javafx.scene.paint.Color.LIME);
                     actiontarget.setText("Successful");
                     controlFrame();
@@ -215,8 +264,9 @@ public class UserFrame extends Application{
         stage.show(); 
 	}
 	
-	public void launchFrame(){
+	public void launchFrame(Controller view){
 		Application.launch(null);
+		this.view = view;
 	}
     @Override public void start(Stage stage) {
     	mainstage = stage;

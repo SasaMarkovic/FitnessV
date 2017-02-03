@@ -6,7 +6,7 @@ package Model;
  *
  */
 public class Controller {
-	private User user;
+	public User user;
 	
 	private Control.Controller concon;
 	private View.Controller viewcon;
